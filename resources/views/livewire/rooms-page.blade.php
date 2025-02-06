@@ -20,67 +20,13 @@
             </ul>
         </div>
     </section>
-    {{-- <div class="container relative -mt-16 z-1">
-        <div class="grid grid-cols-1">
-            <form class="p-6 bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700">
-                <div class="registration-form text-dark text-start">
-                    <div class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-4">
-                        <div>
-                            <label class="form-label font-medium text-slate-900 dark:text-white">Search:</label>
-                            <div class="relative mt-2">
-                                <i data-feather="search" class="size-[18px] absolute top-[10px] start-3"></i>
-                                <input name="name" type="text" id="job-keyword" class="w-full py-2 px-3 ps-10 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0" placeholder="Search">
-                            </div>
-                        </div>
 
-                        <div>
-                            <label class="form-label font-medium text-slate-900 dark:text-white">Select Your Date:</label>
-                            <div class="relative mt-2">
-                                <i data-feather="calendar" class="size-[18px] absolute top-[10px] start-3"></i>
-                                <input name="name" type="text" id="job-keyword" class="w-full py-2 px-3 ps-10 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 start" placeholder="Select Your Date">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="form-label font-medium text-slate-900 dark:text-white">Select Your Date:</label>
-                            <div class="relative mt-2">
-                                <i data-feather="calendar" class="size-[18px] absolute top-[10px] start-3"></i>
-                                <input name="name" type="text" id="job-keyword" class="w-full py-2 px-3 ps-10 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0 end" placeholder="Select Your Date">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="form-label font-medium text-slate-900 dark:text-white">No. of person:</label>
-                            <div class="relative mt-2">
-                                <i data-feather="users" class="size-[18px] absolute top-[10px] start-3"></i>
-                                <select class="form-select w-full py-2 px-3 ps-10 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
-                                    <option disabled selected>No. of person</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="lg:mt-[35px]">
-                            <input type="submit" id="search-buy" name="search" class="py-1 px-5 h-10 inline-block tracking-wide align-middle duration-500 text-base text-center bg-red-500 text-white rounded-md w-full cursor-pointer" value="Search">
-                        </div>
-                    </div><!--end grid-->
-                </div><!--end container-->
-            </form><!--end form-->
-        </div><!--end grid-->
-    </div> --}}
     <div>
-        <!-- نموذج الفلترة -->
         <div class="container relative -mt-16 z-1">
             <div class="grid grid-cols-1">
-                <!-- استخدام wire:submit.prevent لمنع إعادة تحميل الصفحة -->
                 <form wire:submit.prevent="applyFilter" class="p-6 bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700">
                     <div class="registration-form text-dark text-start">
                         <div class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-4">
-                            <!-- حقل البحث -->
                             <div>
                                 <label class="form-label font-medium text-slate-900 dark:text-white">Search:</label>
                                 <div class="relative mt-2">
@@ -89,7 +35,6 @@
                                 </div>
                             </div>
                             
-                            <!-- فلترة الفندق -->
                             <div>
                                 <label class="form-label font-medium text-slate-900 dark:text-white">Hotel:</label>
                                 <div class="relative mt-2">
@@ -104,7 +49,6 @@
                                 </div>
                             </div>
                             
-                            <!-- فلترة نوع الغرفة -->
                             <div>
                                 <label class="form-label font-medium text-slate-900 dark:text-white">Room Type:</label>
                                 <div class="relative mt-2">
@@ -117,7 +61,6 @@
                                 </div>
                             </div>
                             
-                            <!-- فلترة نطاق السعر -->
                             <div>
                                 <label class="form-label font-medium text-slate-900 dark:text-white">Price Range:</label>
                                 <div class="flex space-x-2 mt-2">
@@ -126,7 +69,6 @@
                                 </div>
                             </div>
                             
-                            <!-- فلترة التوفر -->
                             <div>
                                 <label class="form-label font-medium text-slate-900 dark:text-white">Availability:</label>
                                 <div class="relative mt-2">
@@ -139,12 +81,11 @@
                                 </div>
                             </div>
                             
-                            <!-- زر البحث -->
                             <div class="lg:mt-[35px]">
                                 <button type="submit" class="py-1 px-5 h-10 inline-block tracking-wide align-middle duration-500 text-base text-center bg-red-500 text-white rounded-md w-full">Search</button>
                             </div>
-                        </div><!-- نهاية الشبكة -->
-                    </div><!-- نهاية الفورم -->
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -192,39 +133,7 @@
             <p>
                 Showing items from {{ $rooms->firstItem() }} to {{ $rooms->lastItem() }} of a total of {{ $rooms->total() }} products.
             </p>
-            {{-- <div class="grid md:grid-cols-12 grid-cols-1 mt-6">
-                <div class="md:col-span-12 text-center">
-                    <nav aria-label="Page navigation example">
-                        <ul class="inline-flex items-center -space-x-px">
-                            <li>
-                                <a href="#" class="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 hover:bg-red-500 dark:hover:bg-red-500">
-                                    <i data-feather="chevron-left" class="size-5 rtl:rotate-180 rtl:-mt-1"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 hover:bg-red-500 dark:hover:bg-red-500">1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 hover:bg-red-500 dark:hover:bg-red-500">2</a>
-                            </li>
-                            <li>
-                                <a href="#" aria-current="page" class="z-10 size-[40px] inline-flex justify-center items-center text-white bg-red-500 border border-red-500">3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 hover:bg-red-500 dark:hover:bg-red-500">4</a>
-                            </li>
-                            <li>
-                                <a href="#" class="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 hover:bg-red-500 dark:hover:bg-red-500">5</a>
-                            </li>
-                            <li>
-                                <a href="#" class="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 hover:bg-red-500 dark:hover:bg-red-500">
-                                    <i data-feather="chevron-right" class="size-5 rtl:rotate-180 rtl:-mt-1"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div><!--end col-->
-            </div><!--end grid--> --}}
+            
         </div><!--end container-->
     </section><!--end section-->
 </div>

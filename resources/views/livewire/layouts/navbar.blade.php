@@ -35,17 +35,16 @@
             </div>
         </div><!--end container-->
     </div><!--end tagline-->
-    <!-- TAGLINE END-->
-    <!-- Start Navbar -->
+
     <nav id="topnav" class="defaultscroll is-sticky tagline-height">
         <div class="container relative flex justify-between">
             <!-- Logo container-->
             <a class="logo" wire:navigate href="{{ route('home') }}">
                 <span class="inline-block dark:hidden">
-                    <img src="assets/images/logo-dark.png" class="h-7 l-dark" alt="">
-                    <img src="assets/images/logo-light.png" class="h-7 l-light" alt="">
+                    <img src="{{ asset('assets/images/logo-dark.png')}}" class="h-7 l-dark" alt="">
+                    <img src="{{ asset('assets/images/logo-light.png')}}" class="h-7 l-light" alt="">
                 </span>
-                <img src="assets/images/logo-white.png" class="hidden dark:inline-block" alt="">
+                <img src="{{ asset('assets/images/logo-white.png')}}" class="hidden dark:inline-block" alt="">
             </a>
             <!-- End Logo container-->
 
@@ -56,16 +55,6 @@
             <div id="navigation">
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu justify-end nav-light">
-
-                    {{-- <li class="has-submenu parent-menu-item">
-                        <a href="javascript:void(0)">Blog</a><span class="menu-arrow"></span>
-                        <ul class="submenu">
-                            <li><a href="#" class="sub-menu-item"> Blogs</a></li>
-                            <li><a href="#" class="sub-menu-item"> Blog Standard</a></li>
-                            <li><a href="#" class="sub-menu-item"> Blog Detail</a></li>
-                        </ul>
-                    </li> --}}
-
                     <li><a wire:navigate href="{{ route('rooms') }}" class="sub-menu-item">Rooms</a></li>
                     <li><a wire:navigate href="{{ route('hotels') }}" class="sub-menu-item">hotels</a></li>
                 </ul><!--end navigation menu-->
@@ -94,7 +83,7 @@
                     <button data-dropdown-toggle="dropdown" class="dropdown-toggle items-center" type="button">
                         <span
                             class="size-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-md border border-red-500 bg-red-500 text-white"><img
-                                src="assets/images/client/16.jpg" class="rounded-md" alt=""></span>
+                                src="{{ asset('assets/images/client/16.jpg')}}" class="rounded-md" alt=""></span>
                     </button>
                     <!-- Dropdown menu -->
                     <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-48 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 hidden"

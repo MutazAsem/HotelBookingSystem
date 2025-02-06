@@ -8,7 +8,7 @@
                                 <div class="grid md:grid-cols-12 grid-cols-1 gap-6">
                                     <div class="lg:col-span-3 md:col-span-12">
                                         <a wire:navigate href="{{ route('home') }}" class="text-[22px] focus:outline-none">
-                                            <img src="assets/images/logo-light.png" alt="">
+                                            <img src="{{ asset('assets/images/logo-light.png')}}" alt="">
                                         </a>
                                         <p class="mt-6 text-gray-300">Planning for a trip? We will organize your trip with the best places and within best budget!</p>
                                         <ul class="list-none mt-6">

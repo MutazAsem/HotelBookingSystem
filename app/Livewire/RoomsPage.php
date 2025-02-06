@@ -11,6 +11,7 @@ use Livewire\WithPagination;
 #[Title('Articles - Rooms')]
 
 
+
 class RoomsPage extends Component
 {
     use WithPagination;
@@ -36,12 +37,13 @@ class RoomsPage extends Component
         $this->resetPage();
     }
 
-
+    public function applyFilter()
+    {
+    }
 
     public function render()
     {
         $query = Room::query()->with('hotel');
-
 
         if ($this->search) {
             $query->where(function ($q) {
@@ -51,13 +53,17 @@ class RoomsPage extends Component
                     ->orWhere('status', 'like', '%' . $this->search . '%');
 
                 $q->orWhereHas('hotel', function ($q2) {
-                    $q2->where('hotels.name', 'like', '%' . $this->search . '%')
-                        ->orWhere('hotels.location', 'like', '%' . $this->search . '%');
+                    $q2->where('hotels.name', 'like', '%' . $this->search . '%') 
+                        ->orWhere('hotels.location', 'like', '%' . $this->search . '%'); 
                 });
             });
         }
 
-
+        if ($this->hotel) {
+            $query->whereHas('hotel', function ($q) {
+                $q->where('name', 'like', '%' . $this->hotel . '%');
+            });
+        }
         if ($this->roomType) {
             $query->where('room_type', $this->roomType);
         }
