@@ -14,12 +14,7 @@
                         best places and within best budget!</p>
                 </div>
 
-                <div class="lg:col-span-4 md:col-span-5 md:text-center md:order-2 order-1">
-                    <a href="#!" data-type="youtube" data-id="S_CGed6E610"
-                        class="lightbox lg:h-24 h-20 lg:w-24 w-20 rounded-full shadow-lg dark:shadow-gray-800 inline-flex items-center justify-center bg-white hover:bg-red-500 text-red-500 hover:text-white duration-500 ease-in-out mx-auto">
-                        <i class="mdi mdi-play inline-flex items-center justify-center text-3xl"></i>
-                    </a>
-                </div>
+                
             </div><!--end grid-->
         </div><!--end container-->
     </section><!--end section-->
@@ -52,13 +47,18 @@
                                 <div class="absolute p-4 bottom-0 start-0">
                                     <a href="#"
                                         class="text-lg font-medium text-white hover:text-red-500 duration-500 ease-in-out">{{ $hotel->name }}</a>
-                                    <p class="text-white/70 group-hover:text-white text-sm duration-500">{{ $hotel->number_of_rooms }} Room</p>
+                                    <p class="text-white/70 group-hover:text-white text-sm duration-500">
+                                        {{ $hotel->number_of_rooms }} Room</p>
                                 </div>
                             </div>
                         </div><!--end content-->
                     @endforeach
                 </div>
             </div><!--end grid-->
+            <div class="mt-6 text-center">
+                <a wire:navigate href="{{ route('hotels') }}" class="text-slate-400 hover:text-red-500 inline-block">See More
+                    Hotels <i class="mdi mdi-arrow-right align-middle"></i></a>
+            </div>
         </div><!--end container-->
 
         <div class="container relative md:mt-24 mt-16">
@@ -72,41 +72,38 @@
 
             <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
                 @foreach ($rooms as $room)
-                <div class="group rounded-md shadow dark:shadow-gray-700">
-                    <div class="relative overflow-hidden rounded-t-md shadow dark:shadow-gray-700 mx-3 mt-3">
-                        <img src="{{ $room->image }}" class="scale-125 group-hover:scale-100 duration-500"
-                            alt="">
-
-
-  
-                    </div>
-
-                    <div class="p-4">
-                        <p class="flex items-center text-slate-400 font-medium mb-2"><i data-feather="map-pin"
-                                class="text-red-500 size-4 me-1"></i> {{ $room->hotel->location }}</p>
-                        <a href="tour-detail-one.html"
-                            class="text-lg font-medium hover:text-red-500 duration-500 ease-in-out">{{ $room->hotel->name }}</a>
-
-                        <div class="flex items-center mt-2">
-                            <span class="text-slate-400">Room Number :{{$room->room_number}}</span>
+                    <div class="group rounded-md shadow dark:shadow-gray-700" wire:key="{{ $room->id }}">
+                        <div class="relative overflow-hidden rounded-t-md shadow dark:shadow-gray-700 mx-3 mt-3">
+                            <img src="{{ $room->image }}" class="scale-125 group-hover:scale-100 duration-500"
+                                alt="">
                         </div>
 
-                        <div
-                            class="mt-4 pt-4 flex justify-between items-center border-t border-slate-100 dark:border-gray-800">
-                            <h5 class="text-lg font-medium text-red-500">$ {{$room->price}} / Day</h5>
+                        <div class="p-4">
+                            <p class="flex items-center text-slate-400 font-medium mb-2"><i data-feather="map-pin"
+                                    class="text-red-500 size-4 me-1"></i> {{ $room->hotel->location }}</p>
+                            <a href="tour-detail-one.html"
+                                class="text-lg font-medium hover:text-red-500 duration-500 ease-in-out">{{ $room->hotel->name }}</a>
 
-                            <a href="#" class="text-slate-400 hover:text-red-500">Explore Now <i
-                                    class="mdi mdi-arrow-right"></i></a>
+                            <div class="flex items-center mt-2">
+                                <span class="text-slate-400">Room Number :{{ $room->room_number }}</span>
+                            </div>
+
+                            <div
+                                class="mt-4 pt-4 flex justify-between items-center border-t border-slate-100 dark:border-gray-800">
+                                <h5 class="text-lg font-medium text-red-500">$ {{ $room->price }} / Day</h5>
+
+                                <a wire:navigate href="{{ route('booking', ['id' => $room->id]) }}" class="text-slate-400 hover:text-red-500">Book Now <i
+                                        class="mdi mdi-arrow-right"></i></a>
+                            </div>
                         </div>
-                    </div>
-                </div><!--end content-->
+                    </div><!--end content-->
                 @endforeach
-                
+
             </div><!--end grid-->
 
             <div class="mt-6 text-center">
-                <a href="grid-right-sidebar.html" class="text-slate-400 hover:text-red-500 inline-block">See More
-                    Tours <i class="mdi mdi-arrow-right align-middle"></i></a>
+                <a wire:navigate href="{{ route('rooms') }}" class="text-slate-400 hover:text-red-500 inline-block">See More
+                    Rooms <i class="mdi mdi-arrow-right align-middle"></i></a>
             </div>
         </div><!--end container-->
 
