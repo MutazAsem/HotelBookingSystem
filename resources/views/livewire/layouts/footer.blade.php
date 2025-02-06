@@ -88,7 +88,7 @@
                     <div class="container relative text-center">
                         <div class="grid grid-cols-1">
                             <div class="text-center">
-                                <p class="mb-0">© 2025</script> Travosy. Design by Mutaz.</p>
+                                <p class="mb-0">© 2025</script> Travosy. Design by Mutaz Asem.</p>
                             </div>
                         </div><!--end grid-->
                     </div><!--end container-->
