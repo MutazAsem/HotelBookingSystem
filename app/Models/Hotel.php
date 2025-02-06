@@ -11,7 +11,7 @@ class Hotel extends Model
     use SoftDeletes;
     
     protected $fillable = [
-        'name','location','description','number_of_rooms','contact_information'
+        'name','location','description','number_of_rooms','image','email','phone',
     ];
 
     public function room ():HasMany
