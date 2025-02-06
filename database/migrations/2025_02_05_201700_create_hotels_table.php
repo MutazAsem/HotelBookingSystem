@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('location');
             $table->string('description');
             $table->unsignedInteger('number_of_rooms');
-            $table->string('contact_information');
+            $table->string('image')->nullable();
+            $table->string('email')->unique();
+            $table->string('phone');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('room_number');
             $table->string('room_type');
             $table->unsignedInteger('price');
+            $table->string('image')->nullable();
             $table->string('status');
             $table->softDeletes();
             $table->timestamps();
