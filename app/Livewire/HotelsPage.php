@@ -5,7 +5,7 @@ namespace App\Livewire;
 use App\Models\Hotel;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-#[Title('Articles - Hotels')]
+#[Title('Hotels-Travosy')]
 class HotelsPage extends Component
 {
     public function render()

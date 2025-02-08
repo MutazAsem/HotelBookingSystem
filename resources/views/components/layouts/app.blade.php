@@ -31,6 +31,7 @@
         <script src="{{ asset('assets/js/plugins.init.js')}}"></script>
         <script src="{{ asset('assets/js/app.js')}}"></script>
         <!-- JAVASCRIPTS -->
+        <script src="{{ asset('assets/js/printInvoice.js')}}"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <x-livewire-alert::scripts />
         @livewireScripts

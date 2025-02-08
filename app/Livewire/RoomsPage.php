@@ -8,7 +8,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-#[Title('Articles - Rooms')]
+#[Title('Rooms-Travosy')]
 
 
 
