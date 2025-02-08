@@ -5,7 +5,6 @@
 
 3- تحميلComposer
 
-4-تحميل node package management
 
 #
 ## المكتبات المستخدمة:
