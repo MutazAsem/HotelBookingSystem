@@ -1,0 +1,5 @@
+
+function printInvoice() {
+  window.print();
+}
+

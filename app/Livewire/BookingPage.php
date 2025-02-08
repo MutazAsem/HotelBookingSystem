@@ -12,7 +12,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
-#[Title('Articles - Booking')]
+#[Title('Booking-Travosy')]
 class BookingPage extends Component
 {
     use LivewireAlert;
