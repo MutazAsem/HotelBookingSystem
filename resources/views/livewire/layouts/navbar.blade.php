@@ -86,32 +86,32 @@
                                 src="{{ asset('assets/images/client/16.jpg')}}" class="rounded-md" alt=""></span>
                     </button>
                     <!-- Dropdown menu -->
+                    
                     <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-48 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 hidden"
                         onclick="event.stopPropagation();">
                         <ul class="py-2 text-start">
+                            @if (Auth::user())
                             <li>
-                                <a href="#"
+                                <a href="{{ route('profile') }}"
                                     class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-500 dark:hover:text-white"><i
-                                        data-feather="user" class="size-4 me-2"></i>Profile</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-500 dark:hover:text-white"><i
-                                        data-feather="help-circle" class="size-4 me-2"></i>Helpcenter</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-500 dark:hover:text-white"><i
-                                        data-feather="settings" class="size-4 me-2"></i>Settings</a>
-                            </li>
+                                        data-feather="user" class="size-4 me-2"></i>{{$user->name}}</a>
+                            </li>           
                             <li class="border-t border-gray-100 dark:border-gray-800 my-2"></li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('logout') }}"
                                     class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-500 dark:hover:text-white"><i
                                         data-feather="log-out" class="size-4 me-2"></i>Logout</a>
-                            </li>
+                            </li>    
+                            @else
+                            <li>
+                                <a href="{{ route('login') }}"
+                                    class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-500 dark:hover:text-white"><i
+                                        data-feather="log-out" class="size-4 me-2"></i>Login</a>
+                            </li> 
+                            @endif
                         </ul>
                     </div>
+                    
                 </li><!--end dropdown-->
             </ul>
             <!--Login button End-->
