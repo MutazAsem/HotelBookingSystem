@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Mail\BookingConfirmationMail;
 use App\Models\Reservation;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -77,7 +79,7 @@ public function createBooking()
 
     if ($isBooked) {
         $this->alert('warning', 'This room is already booked for the specified dates', [
-            'position' => 'center'
+            'position' => 'center',
         ]);
         return;
     }
@@ -88,14 +90,11 @@ public function createBooking()
     $reservation->check_in_date = $this->check_in_date;
     $reservation->check_out_date = $this->check_out_date;
     $reservation->total_price = $this->total_price;
-
+    $user_id=1;
+    $user=User::where('id',$user_id)->first();
     if($reservation->save()){
-
-        $this->alert('success', 'The room has been booked successfully', [
-            'position' => 'center',
-            'timer' => 3000,
-        ]);
-
+        $this->flash('success', 'The room has been booked successfully', [], route('report', ['id' => $reservation->id]));
+        Mail::to($user->email)->send(new BookingConfirmationMail($reservation));
         return redirect()->route('report', ['id' => $reservation->id]);
 
     }
@@ -106,7 +105,6 @@ public function createBooking()
     ]);
     return;
 }
-
 
 
     public function render()
