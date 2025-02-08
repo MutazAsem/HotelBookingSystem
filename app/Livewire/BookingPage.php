@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Mail\BookingConfirmationMail;
 use App\Models\Reservation;
 use App\Models\Room;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Title;
@@ -83,15 +82,14 @@ public function createBooking()
         ]);
         return;
     }
-
+    $user=Auth::user();
     $reservation = new Reservation();
-    $reservation->client_id = 1;
+    $reservation->client_id = $user->id;
     $reservation->room_id = $this->id;
     $reservation->check_in_date = $this->check_in_date;
     $reservation->check_out_date = $this->check_out_date;
     $reservation->total_price = $this->total_price;
-    $user_id=1;
-    $user=User::where('id',$user_id)->first();
+    
     if($reservation->save()){
         $this->flash('success', 'The room has been booked successfully', [], route('report', ['id' => $reservation->id]));
         Mail::to($user->email)->send(new BookingConfirmationMail($reservation));
@@ -110,10 +108,7 @@ public function createBooking()
     public function render()
     {
         $room = Room::where('id',$this->id)->with('hotel')->firstOrFail();
-        // $user=Auth::user();
-        $user_id=1;
-        $user=User::where('id',$user_id)->first();
-
+        $user=Auth::user();
         return view('livewire.booking-page',[
             'room' => $room,
             'user' => $user,

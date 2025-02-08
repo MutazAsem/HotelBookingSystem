@@ -119,6 +119,14 @@
                                             <span class="">Date :</span>
                                             <span class="text-slate-400">{{ $reservation->created_at }}</span>
                                         </li>
+                                        <li class="flex mt-3">
+                                            <span class="">From :</span>
+                                            <span class="text-slate-400">{{$reservation->check_in_date}}</span>
+                                        </li>
+                                        <li class="flex mt-3">
+                                            <span class="">To : </span>
+                                            <span class="text-slate-400">{{$reservation->check_out_date}}</span>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -151,7 +159,7 @@
                                             </td>
                                             <th scope="row"
                                                 class="text-start px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                                Room Numver :{{ $reservation->room->room_number }}
+                                                Room Number :{{ $reservation->room->room_number }}
                                             </th>
                                             <td class="text-center px-6 py-4">
                                                 {{ $duration }}Days
